@@ -18,7 +18,7 @@ class Ejercicio2Test extends TestCase
 
         $response = $this->post('/ejercicio2/a', $product);
         
-        $response->assertStatus(200);
+        $response->assertStatus(422);
         $response->assertExactJson($product);
     }
 
@@ -35,7 +35,7 @@ class Ejercicio2Test extends TestCase
 
         $response = $this->post('/ejercicio2/b', $product);
         
-        $response->assertStatus(422);
+        $response->assertStatus(200);
         $response->assertExactJson(["message" => "Price can't be less than 0"]);
     }
 
